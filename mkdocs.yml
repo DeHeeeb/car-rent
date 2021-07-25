@@ -1,0 +1,12 @@
+site_name: Car Rent
+site_url: https://example.com/
+repo_url: https://github.com/DeHeeeb/car-rent
+edit_uri: ""
+theme:
+  name: material
+  palette:
+    primary: deep orange
+    accent: amber
+  icon:
+    repo: fontawesome/brands/github
+    
