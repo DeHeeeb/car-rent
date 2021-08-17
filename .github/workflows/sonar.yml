@@ -40,7 +40,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"DeHeeeb_car-rent" /o:"deheeeb" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"DeHeeeb_car-rent" /d:sonar.cs.opencover.reportsPaths="./source/car-rent-backend/**/coverage.opencover.xml" /o:"deheeeb" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet restore ./source/car-rent-backend
           dotnet build --no-restore ./source/car-rent-backend
           dotnet test --no-build --collect:"XPlat Code Coverage" --verbosity normal ./source/car-rent-backend -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
