@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using car_rent_backend.common;
 using Microsoft.EntityFrameworkCore;
 
 namespace car_rent_backend.repository
@@ -19,7 +21,14 @@ namespace car_rent_backend.repository
         {
             using var context = new ProjectContext();
 
-            return context.Set<M>().Find(id);
+            var existing = context.Set<M>().Find(id);
+
+            if (existing == null)
+            {
+                throw new NotFoundException("Entity not found");
+            }
+
+            return existing;
         }
 
         public M Save(M entity)
@@ -57,9 +66,13 @@ namespace car_rent_backend.repository
                 table.Remove(existing);
                 context.SaveChanges();
             }
-            catch
+            catch (ArgumentNullException e)
             {
-                return null;
+                throw new NotFoundException("Entity not found", e);
+            }
+            catch (DbUpdateException e)
+            {
+                throw new CouldNotBeDeletedException("Entity could not be deleted", e);
             }
 
             return existing;

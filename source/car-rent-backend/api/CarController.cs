@@ -8,19 +8,19 @@ namespace car_rent_backend.api
 {
     [ApiController]
     [Route("[controller]")]
-    public class CustomerController : Controller
+    public class CarController : Controller
     {
-        private readonly CustomerService _service = new();
+        private readonly CarService _service = new();
 
         [HttpGet]
-        public IEnumerable<Customer> GetAll()
+        public IEnumerable<Car> GetAll()
         {
             return _service.GetAll();
         }
 
         [HttpGet]
         [Route("{id}")]
-        public ActionResult<Customer> Get(int id)
+        public ActionResult<Car> Get(int id)
         {
             try
             {
@@ -33,20 +33,20 @@ namespace car_rent_backend.api
         }
 
         [HttpPost]
-        public Customer Save(Customer customer)
+        public Car Save(Car car)
         {
-            return _service.Save(customer);
+            return _service.Save(car);
         }
 
         [HttpPatch]
-        public Customer Update(Customer customer)
+        public Car Update(Car car)
         {
-            return _service.Update(customer);
+            return _service.Update(car);
         }
 
         [HttpDelete]
         [Route("{id}")]
-        public ActionResult<Customer> Delete(int id)
+        public ActionResult<Car> Delete(int id)
         {
             try
             {

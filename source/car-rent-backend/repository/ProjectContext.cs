@@ -7,6 +7,7 @@ namespace car_rent_backend.repository
     public class ProjectContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Customer> Cars { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -15,6 +16,16 @@ namespace car_rent_backend.repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder
+                .Entity<Car>()
+                .Property(c => c.Type)
+                .HasConversion<string>();
+
+            modelBuilder
+                .Entity<Car>()
+                .Property(c => c.Class)
+                .HasConversion<string>();
+
             var customers = new List<Customer>
             {
                 new()
@@ -69,7 +80,92 @@ namespace car_rent_backend.repository
                 },
             };
 
+            var cars = new List<Car>
+            {
+                new()
+                {
+                    Id = 1,
+                    CarNr = "1001",
+                    Type = CarType.Limousine,
+                    Class = CarClass.Low,
+                    Brand = "Peugeot"
+                },
+                new()
+                {
+                    Id = 2,
+                    CarNr = "1015",
+                    Type = CarType.Minivan,
+                    Class = CarClass.Medium,
+                    Brand = "Citroen"
+                },
+                new()
+                {
+                    Id = 3,
+                    CarNr = "5075",
+                    Type = CarType.Convertible,
+                    Class = CarClass.High,
+                    Brand = "Chevrolet"
+                },
+                new()
+                {
+                    Id = 4,
+                    CarNr = "1043",
+                    Type = CarType.Limousine,
+                    Class = CarClass.Medium,
+                    Brand = "VW"
+                },
+                new()
+                {
+                    Id = 5,
+                    CarNr = "9311",
+                    Type = CarType.Convertible,
+                    Class = CarClass.Medium,
+                    Brand = "BMW"
+                },
+                new()
+                {
+                    Id = 6,
+                    CarNr = "1353",
+                    Type = CarType.Minivan,
+                    Class = CarClass.High,
+                    Brand = "Suzuki"
+                },
+                new()
+                {
+                    Id = 7,
+                    CarNr = "3197",
+                    Type = CarType.Limousine,
+                    Class = CarClass.High,
+                    Brand = "Tesla"
+                },
+                new()
+                {
+                    Id = 8,
+                    CarNr = "4220",
+                    Type = CarType.Minivan,
+                    Class = CarClass.Medium,
+                    Brand = "VW"
+                },
+                new()
+                {
+                    Id = 9,
+                    CarNr = "8314",
+                    Type = CarType.Limousine,
+                    Class = CarClass.Low,
+                    Brand = "VW"
+                },
+                new()
+                {
+                    Id = 10,
+                    CarNr = "4750",
+                    Type = CarType.Limousine,
+                    Class = CarClass.Low,
+                    Brand = "VW"
+                },
+            };
+
             customers.ForEach(customer => modelBuilder.Entity<Customer>().HasData(customer));
+            cars.ForEach(car => modelBuilder.Entity<Car>().HasData(car));
         }
     }
 }

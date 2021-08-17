@@ -5,16 +5,16 @@ using car_rent_backend.repository;
 
 namespace car_rent_backend.service
 {
-    public class CustomerService
+    public class CarService
     {
-        private readonly CustomerRepository _repo = new();
+        private readonly CarRepository _repo = new();
 
-        public List<Customer> GetAll()
+        public List<Car> GetAll()
         {
             return _repo.GetAll();
         }
 
-        public Customer Get(int id)
+        public Car Get(int id)
         {
             try
             {
@@ -22,33 +22,33 @@ namespace car_rent_backend.service
             }
             catch (NotFoundException e)
             {
-                throw new NotFoundException("Customer not found", e);
+                throw new NotFoundException("Car not found", e);
             }
         }
 
-        public Customer Save(Customer customer)
+        public Car Save(Car car)
         {
-            return _repo.Save(customer);
+            return _repo.Save(car);
         }
 
-        public Customer Update(Customer customer)
+        public Car Update(Car car)
         {
-            return _repo.Update(customer);
+            return _repo.Update(car);
         }
 
-        public Customer Delete(int id)
+        public Car Delete(int id)
         {
             try
             {
                 return _repo.Delete(id);
-            } 
+            }
             catch (NotFoundException e)
             {
-                throw new NotFoundException("Customer not found", e);
-            } 
+                throw new NotFoundException("Car not found", e);
+            }
             catch (CouldNotBeDeletedException e)
             {
-                throw new CouldNotBeDeletedException("Customer could not be deleted", e);
+                throw new CouldNotBeDeletedException("Car could not be deleted", e);
             }
         }
     }
