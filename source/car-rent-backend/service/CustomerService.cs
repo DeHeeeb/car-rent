@@ -3,12 +3,14 @@ using System.Linq;
 using car_rent_backend.common;
 using car_rent_backend.domain;
 using car_rent_backend.repository;
+using car_rent_backend.service.validation;
 
 namespace car_rent_backend.service
 {
     public class CustomerService
     {
         private readonly CustomerRepository _repo = new();
+        private readonly CustomerValidationService _validation = new();
 
         public List<Customer> GetAll()
         {
@@ -29,11 +31,13 @@ namespace car_rent_backend.service
 
         public Customer Save(Customer customer)
         {
+            _validation.ValidateSave(customer);
             return _repo.Save(customer);
         }
 
         public Customer Update(Customer customer)
         {
+            _validation.ValidateUpdate(customer);
             return _repo.Update(customer);
         }
 

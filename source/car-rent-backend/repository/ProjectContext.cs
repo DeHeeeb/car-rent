@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using car_rent_backend.domain;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,7 @@ namespace car_rent_backend.repository
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Car> Cars { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -164,8 +166,79 @@ namespace car_rent_backend.repository
                 },
             };
 
+            var reservations = new List<Reservation>
+            {
+                new()
+                {
+                    Id = 1,
+                    ReservationNr = "R123",
+                    CustomerId = 1,
+                    CarClass = CarClass.Medium,
+                    StartDate = new DateTime(2021, 8, 28),
+                    EndDate = new DateTime(2021, 8, 31),
+                    Total = 400,
+                    IsContract = true
+                },
+                new()
+                {
+                    Id = 2,
+                    ReservationNr = "R884",
+                    CustomerId = 4,
+                    CarClass = CarClass.Low,
+                    StartDate = new DateTime(2021, 8, 1),
+                    EndDate = new DateTime(2021, 8, 10),
+                    Total = 800,
+                    IsContract = true
+                },
+                new()
+                {
+                    Id = 3,
+                    ReservationNr = "R241",
+                    CustomerId = 2,
+                    CarClass = CarClass.Medium,
+                    StartDate = new DateTime(2021, 8, 4),
+                    EndDate = new DateTime(2021, 8, 6),
+                    Total = 300,
+                    IsContract = true
+                },
+                new()
+                {
+                    Id = 4,
+                    ReservationNr = "R359",
+                    CustomerId = 2,
+                    CarClass = CarClass.High,
+                    StartDate = new DateTime(2021, 8, 20),
+                    EndDate = new DateTime(2021, 8, 28),
+                    Total = null,
+                    IsContract = false
+                },
+                new()
+                {
+                    Id = 5,
+                    ReservationNr = "R305",
+                    CustomerId = 5,
+                    CarClass = CarClass.Low,
+                    StartDate = new DateTime(2021, 12, 12),
+                    EndDate = new DateTime(2021, 12, 20),
+                    Total = null,
+                    IsContract = false
+                },
+                new()
+                {
+                    Id = 6,
+                    ReservationNr = "R432",
+                    CustomerId = 2,
+                    CarClass = CarClass.High,
+                    StartDate = new DateTime(2021, 8, 31),
+                    EndDate = new DateTime(2021, 9, 10),
+                    Total = null,
+                    IsContract = false
+                },
+            };
+
             customers.ForEach(customer => modelBuilder.Entity<Customer>().HasData(customer));
             cars.ForEach(car => modelBuilder.Entity<Car>().HasData(car));
+            reservations.ForEach(reservation => modelBuilder.Entity<Reservation>().HasData(reservation));
         }
     }
 }

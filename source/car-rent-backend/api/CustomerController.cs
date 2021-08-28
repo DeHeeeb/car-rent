@@ -33,15 +33,29 @@ namespace car_rent_backend.api
         }
 
         [HttpPost]
-        public Customer Save(Customer customer)
+        public ActionResult<Customer> Save(Customer customer)
         {
-            return _service.Save(customer);
+            try
+            {
+                return _service.Save(customer);
+            }
+            catch (ValidationException e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpPatch]
-        public Customer Update(Customer customer)
+        public ActionResult<Customer> Update(Customer customer)
         {
-            return _service.Update(customer);
+            try
+            {
+                return _service.Update(customer);
+            }
+            catch (ValidationException e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpDelete]

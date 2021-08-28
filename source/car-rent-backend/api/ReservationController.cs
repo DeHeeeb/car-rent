@@ -8,19 +8,19 @@ namespace car_rent_backend.api
 {
     [ApiController]
     [Route("[controller]")]
-    public class CarController : Controller
+    public class ReservationController : Controller
     {
-        private readonly CarService _service = new();
+        private readonly ReservationService _service = new();
 
         [HttpGet]
-        public IEnumerable<Car> GetAll()
+        public IEnumerable<Reservation> GetAll()
         {
             return _service.GetAll();
         }
 
         [HttpGet]
         [Route("{id}")]
-        public ActionResult<Car> Get(int id)
+        public ActionResult<Reservation> Get(int id)
         {
             try
             {
@@ -33,11 +33,11 @@ namespace car_rent_backend.api
         }
 
         [HttpPost]
-        public ActionResult<Car> Save(Car car)
+        public ActionResult<Reservation> Save(Reservation reservation)
         {
             try
             {
-                return _service.Save(car);
+                return _service.Save(reservation);
             }
             catch (ValidationException e)
             {
@@ -46,11 +46,11 @@ namespace car_rent_backend.api
         }
 
         [HttpPatch]
-        public ActionResult<Car> Update(Car car)
+        public ActionResult<Reservation> Update(Reservation reservation)
         {
             try
             {
-                return _service.Update(car);
+                return _service.Update(reservation);
             }
             catch (ValidationException e)
             {
@@ -60,7 +60,7 @@ namespace car_rent_backend.api
 
         [HttpDelete]
         [Route("{id}")]
-        public ActionResult<Car> Delete(int id)
+        public ActionResult<Reservation> Delete(int id)
         {
             try
             {
@@ -72,22 +72,15 @@ namespace car_rent_backend.api
             }
             catch (CouldNotBeDeletedException)
             {
-                return BadRequest("Customer could not be deleted");
+                return BadRequest("Reservation could not be deleted");
             }
         }
 
-        [HttpGet]
-        [Route("find/{text}")]
-        public ActionResult<List<Car>> Search(string text)
+        [HttpPost]
+        [Route("calculate")]
+        public double Calculate(Reservation reservation)
         {
-            try
-            {
-                return _service.Search(text);
-            }
-            catch (NotFoundException)
-            {
-                return NotFound();
-            }
+            return _service.Calculate(reservation);
         }
     }
 }
