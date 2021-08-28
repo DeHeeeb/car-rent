@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using car_rent_backend.common;
 using car_rent_backend.domain;
 using car_rent_backend.repository;
@@ -50,6 +51,17 @@ namespace car_rent_backend.service
             {
                 throw new CouldNotBeDeletedException("Car could not be deleted", e);
             }
+        }
+        public List<Car> Search(string text)
+        {
+            var cars = _repo.Search(text);
+
+            if (!cars.Any())
+            {
+                throw new NotFoundException("No car found");
+            }
+
+            return cars;
         }
     }
 }

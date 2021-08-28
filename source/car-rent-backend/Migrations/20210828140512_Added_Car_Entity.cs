@@ -6,21 +6,8 @@ namespace car_rent_backend.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Customers",
-                table: "Customers");
-
-            migrationBuilder.RenameTable(
-                name: "Customers",
-                newName: "Customer");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Customer",
-                table: "Customer",
-                column: "Id");
-
             migrationBuilder.CreateTable(
-                name: "Car",
+                name: "Cars",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -32,11 +19,11 @@ namespace car_rent_backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Car", x => x.Id);
+                    table.PrimaryKey("PK_Cars", x => x.Id);
                 });
 
             migrationBuilder.InsertData(
-                table: "Car",
+                table: "Cars",
                 columns: new[] { "Id", "Brand", "CarNr", "Class", "Type" },
                 values: new object[,]
                 {
@@ -56,20 +43,7 @@ namespace car_rent_backend.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Car");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Customer",
-                table: "Customer");
-
-            migrationBuilder.RenameTable(
-                name: "Customer",
-                newName: "Customers");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Customers",
-                table: "Customers",
-                column: "Id");
+                name: "Cars");
         }
     }
 }

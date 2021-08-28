@@ -7,7 +7,7 @@ namespace car_rent_backend.repository
     public class ProjectContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Customer> Cars { get; set; }
+        public DbSet<Car> Cars { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

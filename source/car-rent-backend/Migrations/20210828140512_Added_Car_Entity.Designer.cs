@@ -9,7 +9,7 @@ using car_rent_backend.repository;
 namespace car_rent_backend.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    [Migration("20210809162628_Added_Car_Entity")]
+    [Migration("20210828140512_Added_Car_Entity")]
     partial class Added_Car_Entity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,7 +43,7 @@ namespace car_rent_backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Car");
+                    b.ToTable("Cars");
 
                     b.HasData(
                         new
@@ -155,7 +155,7 @@ namespace car_rent_backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customer");
+                    b.ToTable("Customers");
 
                     b.HasData(
                         new

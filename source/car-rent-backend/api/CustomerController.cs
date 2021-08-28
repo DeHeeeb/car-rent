@@ -61,5 +61,19 @@ namespace car_rent_backend.api
                 return BadRequest("Customer could not be deleted");
             }
         }
+
+        [HttpGet]
+        [Route("find/{text}")]
+        public ActionResult<List<Customer>> Search(string text)
+        {
+            try
+            {
+                return _service.Search(text);
+            }
+            catch (NotFoundException)
+            {
+                return NotFound();
+            }
+        }
     }
 }

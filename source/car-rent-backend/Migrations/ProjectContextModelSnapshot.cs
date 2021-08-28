@@ -41,7 +41,7 @@ namespace car_rent_backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Car");
+                    b.ToTable("Cars");
 
                     b.HasData(
                         new
@@ -153,7 +153,7 @@ namespace car_rent_backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customer");
+                    b.ToTable("Customers");
 
                     b.HasData(
                         new
