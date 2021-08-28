@@ -19,6 +19,13 @@ namespace car_rent_backend.api
         }
 
         [HttpGet]
+        [Route("contracts")]
+        public IEnumerable<Reservation> GetContracts()
+        {
+            return _service.GetContracts();
+        }
+
+        [HttpGet]
         [Route("{id}")]
         public ActionResult<Reservation> Get(int id)
         {
@@ -81,6 +88,20 @@ namespace car_rent_backend.api
         public double Calculate(Reservation reservation)
         {
             return _service.Calculate(reservation);
+        }
+
+        [HttpPatch]
+        [Route("{id}/contract")]
+        public ActionResult<Reservation> ConvertToContract(int id)
+        {
+            try
+            {
+                return _service.ConvertToContract(id);
+            }
+            catch (ValidationException e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

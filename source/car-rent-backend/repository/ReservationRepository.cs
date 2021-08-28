@@ -23,5 +23,15 @@ namespace car_rent_backend.repository
                 .Include(r => r.Customer)
                 .Single(r => r.Id == id);
         }
+
+        public List<Reservation> GetContracts()
+        {
+            using var context = new ProjectContext();
+            return context.Reservations
+                .Include(r => r.Customer)
+                .OrderBy(r => r.Id)
+                .Where(r => r.IsContract)
+                .ToList();
+        }
     }
 }

@@ -20,6 +20,11 @@ namespace car_rent_backend.service
             return _repo.GetAll();
         }
 
+        public List<Reservation> GetContracts()
+        {
+            return _repo.GetContracts();
+        }
+
         public Reservation Get(int id)
         {
             try
@@ -79,6 +84,20 @@ namespace car_rent_backend.service
                 _ => 0d
             };
 
+        }
+
+        public Reservation ConvertToContract(int id)
+        {
+            var reservation = Get(id);
+            if (reservation.IsContract)
+            {
+                throw new ValidationException("Contract already exists");
+            }
+
+            reservation.Total = Calculate(reservation);
+            reservation.IsContract = true;
+
+            return _repo.Update(reservation);
         }
     }
 }
