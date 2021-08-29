@@ -10,7 +10,12 @@ namespace car_rent_backend.api
     [Route("[controller]")]
     public class ReservationController : Controller
     {
-        private readonly ReservationService _service = new();
+        private readonly ReservationService _service;
+
+        public ReservationController(ReservationService service)
+        {
+            _service = service;
+        }
 
         [HttpGet]
         public IEnumerable<Reservation> GetAll()

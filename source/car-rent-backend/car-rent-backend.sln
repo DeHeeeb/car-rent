@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "car-rent-backend", "car-rent-backend.csproj", "{1B77F58A-1843-4774-ABF6-C0BEA8FDEB85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "car-rent-backend", "car-rent-backend.csproj", "{1B77F58A-1843-4774-ABF6-C0BEA8FDEB85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "car-rent-backend.Tests", "..\..\test\car-rent-backend.Tests\car-rent-backend.Tests.csproj", "{2CB35D9F-DCF9-4E71-8309-3A4C3B09BFE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1B77F58A-1843-4774-ABF6-C0BEA8FDEB85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B77F58A-1843-4774-ABF6-C0BEA8FDEB85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B77F58A-1843-4774-ABF6-C0BEA8FDEB85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CB35D9F-DCF9-4E71-8309-3A4C3B09BFE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB35D9F-DCF9-4E71-8309-3A4C3B09BFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CB35D9F-DCF9-4E71-8309-3A4C3B09BFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CB35D9F-DCF9-4E71-8309-3A4C3B09BFE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

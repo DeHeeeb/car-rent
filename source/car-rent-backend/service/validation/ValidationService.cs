@@ -7,7 +7,7 @@ namespace car_rent_backend.service.validation
 {
     public abstract class ValidationService<T>
     {
-        private readonly List<string> _validationMessages = new();
+        public readonly List<string> ValidationMessages = new();
 
         public abstract void ValidateSave(T obj);
 
@@ -15,9 +15,9 @@ namespace car_rent_backend.service.validation
 
         protected void CheckForViolations()
         {
-            if (_validationMessages.Any())
+            if (ValidationMessages.Any())
             {
-                var validationMessage = string.Join("\r\n", _validationMessages);
+                var validationMessage = string.Join("\r\n", ValidationMessages);
                 throw new ValidationException(validationMessage);
             }
         }
@@ -26,7 +26,7 @@ namespace car_rent_backend.service.validation
         {
             if (!assertion)
             {
-                _validationMessages.Add(validationMessage);
+                ValidationMessages.Add(validationMessage);
             }
         }
 

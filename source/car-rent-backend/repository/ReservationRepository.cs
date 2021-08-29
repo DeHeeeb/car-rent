@@ -7,9 +7,13 @@ namespace car_rent_backend.repository
 {
     public class ReservationRepository : RepositoryBase<Reservation>
     {
+        public ReservationRepository(DbContextOptions<ProjectContext> options) : base(options)
+        {
+        }
+
         public new List<Reservation> GetAll()
         {
-            using var context = new ProjectContext();
+            using var context = new ProjectContext(Options);
             return context.Reservations
                 .Include(r => r.Customer)
                 .OrderBy(r => r.Id)
@@ -18,7 +22,7 @@ namespace car_rent_backend.repository
 
         public new Reservation GetSingle(int id)
         {
-            using var context = new ProjectContext();
+            using var context = new ProjectContext(Options);
             return context.Reservations
                 .Include(r => r.Customer)
                 .Single(r => r.Id == id);
@@ -26,7 +30,7 @@ namespace car_rent_backend.repository
 
         public List<Reservation> GetContracts()
         {
-            using var context = new ProjectContext();
+            using var context = new ProjectContext(Options);
             return context.Reservations
                 .Include(r => r.Customer)
                 .OrderBy(r => r.Id)

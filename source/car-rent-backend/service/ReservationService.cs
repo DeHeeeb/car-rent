@@ -9,11 +9,17 @@ namespace car_rent_backend.service
 {
     public class ReservationService
     {
-        private readonly ReservationRepository _repo = new();
-        private readonly ReservationValidationService _validation = new();
+        private readonly ReservationRepository _repo;
+        private readonly ReservationValidationService _validation;
         private const double PriceLow = 80;
         private const double PriceMedium = 100;
         private const double PriceHigh = 150;
+
+        public ReservationService(ReservationRepository repo, ReservationValidationService validation)
+        {
+            _repo = repo;
+            _validation = validation;
+        }
 
         public List<Reservation> GetAll()
         {

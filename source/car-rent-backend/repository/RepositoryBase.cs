@@ -8,9 +8,16 @@ namespace car_rent_backend.repository
 {
     public abstract class RepositoryBase<M> : IRepositoryBase<M> where M : class
     {
+        protected readonly DbContextOptions<ProjectContext> Options;
+
+        protected RepositoryBase(DbContextOptions<ProjectContext> options)
+        {
+            Options = options;
+        }
+
         public List<M> GetAll()
         {
-            using var context = new ProjectContext();
+            using var context = new ProjectContext(Options);
 
             var table = context.Set<M>();
 
@@ -19,7 +26,7 @@ namespace car_rent_backend.repository
 
         public M GetSingle(int id)
         {
-            using var context = new ProjectContext();
+            using var context = new ProjectContext(Options);
 
             var existing = context.Set<M>().Find(id);
 
@@ -33,7 +40,7 @@ namespace car_rent_backend.repository
 
         public M Save(M entity)
         {
-            using var context = new ProjectContext();
+            using var context = new ProjectContext(Options);
 
             var table = context.Set<M>();
             var attach = table.Attach(entity);
@@ -44,7 +51,7 @@ namespace car_rent_backend.repository
 
         public M Update(M entity)
         {
-            using var context = new ProjectContext();
+            using var context = new ProjectContext(Options);
 
             var table = context.Set<M>();
             var attach = table.Attach(entity);
@@ -56,7 +63,7 @@ namespace car_rent_backend.repository
 
         public M Delete(int id)
         {
-            using var context = new ProjectContext();
+            using var context = new ProjectContext(Options);
 
             var table = context.Set<M>();
             var existing = table.Find(id);

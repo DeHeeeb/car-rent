@@ -9,8 +9,14 @@ namespace car_rent_backend.service
 {
     public class CarService
     {
-        private readonly CarRepository _repo = new();
-        private readonly CarValidationService _validation = new();
+        private readonly CarRepository _repo;
+        private readonly CarValidationService _validation;
+
+        public CarService(CarRepository repo, CarValidationService validation)
+        {
+            _repo = repo;
+            _validation = validation;
+        }
 
         public List<Car> GetAll()
         {
