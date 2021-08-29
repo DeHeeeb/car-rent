@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -7,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using car_rent_backend.domain;
 using car_rent_backend.repository;
+using car_rent_backend.Tests.integration.setup;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;

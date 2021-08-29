@@ -59,6 +59,7 @@ namespace car_rent_backend.Tests.service.validation
             var validator = new CarValidationService();
             var car = new Car()
             {
+                Id = 3,
                 CarNr = "C123",
                 Class = CarClass.Medium,
                 Type = CarType.Convertible,

@@ -1,10 +1,11 @@
-﻿using car_rent_backend.repository;
+﻿using System;
+using car_rent_backend.repository;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace car_rent_backend.Tests.integration
+namespace car_rent_backend.Tests.integration.setup
 {
     public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<Startup>
     {
@@ -20,7 +21,7 @@ namespace car_rent_backend.Tests.integration
                 // Add a database context (AppDbContext) using an in-memory database for testing.
                 services.AddSingleton(
                     new DbContextOptionsBuilder<ProjectContext>()
-                        .UseInMemoryDatabase("InMemoryDb")
+                        .UseInMemoryDatabase(Guid.NewGuid().ToString())
                         .Options);
             });
         }
