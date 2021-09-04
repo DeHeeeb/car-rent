@@ -7,7 +7,7 @@ namespace car_rent_backend.service.validation
 {
     public abstract class ValidationService<T>
     {
-        public readonly List<string> ValidationMessages = new();
+        public List<string> ValidationMessages = new();
 
         public abstract void ValidateSave(T obj);
 

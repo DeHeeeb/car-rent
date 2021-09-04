@@ -10,24 +10,11 @@ namespace car_rent_backend.repository
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
-        /*
-        public ProjectContext() : base(
-            new DbContextOptionsBuilder<ProjectContext>()
-            .UseSqlServer("Data Source=.; Database=CarRent; Trusted_Connection=True")
-            .Options)
-        {
-        }*/
 
         public ProjectContext(DbContextOptions<ProjectContext> options) : base(options)
         {
         }
-
-        /*
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=.; Database=CarRent; Trusted_Connection=True");
-        }
-        */
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder
