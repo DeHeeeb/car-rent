@@ -1,0 +1,502 @@
+{
+	"info": {
+		"_postman_id": "ffd119e7-d6ca-48b4-9a17-0c5b807f3316",
+		"name": "Car Rent",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Get Customers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44349/customer",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customer 3",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44349/customer/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"customer",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save new Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerNr\": \"C777\",\r\n    \"lastName\": \"Frei\",\r\n    \"firstName\": \"Luca\",\r\n    \"street\": \"Beckstrasse 2\",\r\n    \"zip\": 9500,\r\n    \"city\": \"Wil SG\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44349/customer",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer 6",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 6,\r\n    \"customerNr\": \"C777\",\r\n    \"lastName\": \"Frei\",\r\n    \"firstName\": \"Luca\",\r\n    \"street\": \"Metzgerweg 65\",\r\n    \"zip\": 9500,\r\n    \"city\": \"Wil SG\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44349/customer",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer 6",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44349/customer/6",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"customer",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44349/customer/find/n773",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"customer",
+								"find",
+								"n773"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Car",
+			"item": [
+				{
+					"name": "Get Cars",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44349/car",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Car 2",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44349/car/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"car",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save new Car",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"carNr\": \"7766\",\r\n    \"type\": 0,\r\n    \"class\": 1,\r\n    \"brand\": \"KIA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44349/car",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car 11",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 11,\r\n    \"carNr\": \"7766\",\r\n    \"type\": 0,\r\n    \"class\": 2,\r\n    \"brand\": \"KIA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44349/car",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Car 11",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44349/car/11",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"car",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Car",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44349/car/find/kia",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"car",
+								"find",
+								"kia"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "Get Reservations",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44349/reservation",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"reservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reservation 2",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44349/reservation/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"reservation",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save new Reservation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reservationNr\": \"R331\",\r\n    \"customerId\": 1,\r\n    \"carClass\": 1,\r\n    \"startDate\": \"2021-08-05\",\r\n    \"endDate\": \"2021-08-07\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44349/reservation",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"reservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Reservation 9",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 9,\r\n    \"reservationNr\": \"R999\",\r\n    \"customerId\": 1,\r\n    \"carClass\": 1,\r\n    \"startDate\": \"2021-08-05T00:00:00\",\r\n    \"endDate\": \"2021-08-07T00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44349/reservation",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"reservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Reservation 9",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44349/reservation/17",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"reservation",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"carClass\": 2,\r\n    \"startDate\": \"2021-08-20\",\r\n    \"endDate\": \"2021-08-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44349/reservation/calculate",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"reservation",
+								"calculate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contracts",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44349/reservation/contracts",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"reservation",
+								"contracts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Convert to Contract",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44349/reservation/5/contract",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44349",
+							"path": [
+								"reservation",
+								"5",
+								"contract"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
